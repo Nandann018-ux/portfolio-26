@@ -1,17 +1,7 @@
+import React from "react";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Nandan Acharya — Portfolio V1",
@@ -25,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full antialiased">
-      <body className={`${geistSans.variable} ${geistMono.variable} min-h-full font-sans`}>
+      <body className="min-h-full font-sans bg-[#F9F9F7] text-black">
         <SmoothScroll>
           {children}
         </SmoothScroll>
