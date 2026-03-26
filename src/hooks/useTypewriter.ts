@@ -13,8 +13,9 @@ export function useTypewriter(text: string, speed: number = 50, delay: number = 
     const startTyping = () => {
       const intervalId = setInterval(() => {
         if (currentIndex < text.length) {
-          setDisplayText((prev) => prev + text[currentIndex]);
+          const char = text[currentIndex];
           currentIndex++;
+          setDisplayText((prev) => prev + char);
         } else {
           clearInterval(intervalId);
           setIsDone(true);

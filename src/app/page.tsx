@@ -32,34 +32,6 @@ export default function Home() {
         }}
       />
 
-      <div
-        style={{
-          position: 'fixed',
-          top: 0,
-          right: 0,
-          width: '55vw',
-          height: '100vh',
-          zIndex: 0,
-          pointerEvents: 'none',
-          overflow: 'hidden',
-        }}
-      >
-        <img
-          src="/images/generated-hero.jpg"
-          alt=""
-          style={{
-            width: '100%',
-            height: '120%',
-            objectFit: 'cover',
-            filter: 'grayscale(100%)',
-            opacity: 0.1,
-            mixBlendMode: 'multiply',
-            maskImage: 'linear-gradient(to right, transparent 0%, black 35%)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 35%)',
-          }}
-        />
-      </div>
-
       <Hero />
       <Chronology />
     </motion.div>

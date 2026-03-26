@@ -14,8 +14,9 @@ export default function Hero() {
 
   const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const heroY = useTransform(scrollYProgress, [0, 0.5], [0, -50]);
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, -80]);
 
-  const { displayText: typed } = useTypewriter('FULL STACK // AI & ML // 2026', 45, 200);
+  const { displayText: typed } = useTypewriter('FULL STACK // AI & ML // 2026', 45, 500);
 
   return (
     <section ref={ref} style={{ position: 'relative', width: '100%', height: '250vh' }}>
@@ -24,29 +25,34 @@ export default function Hero() {
           position: 'fixed',
           top: 0,
           left: 0,
-          width: '45vw',
+          width: '50vw',
           height: '100vh',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          paddingLeft: '10vw',
+          paddingLeft: '6vw',
+          paddingRight: '2vw',
           zIndex: 10,
           opacity: heroOpacity,
           y: heroY,
         }}
       >
         <motion.div
-          initial={{ x: -150, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1.8, ease: [0.19, 1, 0.22, 1] }}
+          initial={{ opacity: 0, x: 60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            duration: 1.8,
+            ease: [0.19, 1, 0.22, 1],
+            delay: 0.1,
+          }}
         >
           <h1
             style={{
               fontFamily: 'ui-serif, Georgia, "Times New Roman", serif',
-              fontSize: '10vw',
+              fontSize: '8vw',
               fontStyle: 'italic',
               letterSpacing: '-0.04em',
-              lineHeight: 0.82,
+              lineHeight: 0.85,
               color: '#000',
               margin: 0,
             }}
@@ -54,7 +60,17 @@ export default function Hero() {
             <span style={{ display: 'block' }}>NANDAN</span>
             <span style={{ display: 'block' }}>ACHAR</span>
           </h1>
+        </motion.div>
 
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            duration: 1.5,
+            delay: 0.3,
+            ease: 'easeOut',
+          }}
+        >
           <div
             style={{
               marginTop: '40px',
@@ -171,6 +187,37 @@ export default function Hero() {
             }}
           />
         </div>
+      </motion.div>
+
+      <motion.div
+        style={{
+          position: 'fixed',
+          top: 0,
+          right: 0,
+          width: '55vw',
+          height: '100vh',
+          zIndex: 0,
+          pointerEvents: 'none',
+          overflow: 'hidden',
+          y: imageY,
+        }}
+      >
+        <motion.img
+          src="/images/generated-hero.jpg"
+          alt=""
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.25 }}
+          transition={{ duration: 3, ease: [0.25, 0.1, 0.25, 1], delay: 0.2 }}
+          style={{
+            width: '100%',
+            height: '130%',
+            objectFit: 'cover',
+            filter: 'grayscale(100%) contrast(120%) brightness(90%)',
+            mixBlendMode: 'multiply',
+            maskImage: 'linear-gradient(to right, transparent 0%, black 40%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 40%)',
+          }}
+        />
       </motion.div>
     </section>
   );
