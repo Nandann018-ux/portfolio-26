@@ -2,7 +2,6 @@
 
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useTypewriter } from '@/hooks/useTypewriter';
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -12,134 +11,104 @@ export default function Hero() {
     offset: ['start start', 'end start'],
   });
 
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const heroY = useTransform(scrollYProgress, [0, 0.5], [0, -50]);
-  const imageY = useTransform(scrollYProgress, [0, 1], [0, -80]);
-
-  const { displayText: typed } = useTypewriter('FULL STACK // AI & ML // 2026', 45, 500);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
+  const heroScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
+  const heroY = useTransform(scrollYProgress, [0, 0.5], [0, -40]);
 
   return (
-    <section ref={ref} style={{ position: 'relative', width: '100%', height: '250vh' }}>
+    <section ref={ref} style={{ position: 'relative', width: '100%', minHeight: '180vh', backgroundColor: '#F9F9F7' }}>
       <motion.div
         style={{
           position: 'fixed',
           top: 0,
           left: 0,
-          width: '50vw',
+          width: '100%',
           height: '100vh',
           display: 'flex',
           flexDirection: 'column',
+          alignItems: 'center',
           justifyContent: 'center',
-          paddingLeft: '6vw',
-          paddingRight: '2vw',
           zIndex: 10,
           opacity: heroOpacity,
+          scale: heroScale,
           y: heroY,
         }}
       >
-        <motion.div
-          initial={{ opacity: 0, x: 60 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{
-            duration: 1.8,
-            ease: [0.19, 1, 0.22, 1],
-            delay: 0.1,
-          }}
-        >
-          <h1
+        {/* Main Heading Reveal */}
+        <div style={{ overflow: 'hidden', textAlign: 'center', marginBottom: '24px' }}>
+          <motion.h1
+            initial={{ y: '100%' }}
+            animate={{ y: 0 }}
+            transition={{
+              duration: 1.8,
+              ease: [0.19, 1, 0.22, 1],
+              delay: 0.5,
+            }}
             style={{
-              fontFamily: 'ui-serif, Georgia, "Times New Roman", serif',
-              fontSize: '8vw',
-              fontStyle: 'italic',
+              fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+              fontSize: '10vw',
+              fontWeight: 800,
               letterSpacing: '-0.04em',
-              lineHeight: 0.85,
-              color: '#000',
+              lineHeight: 0.9,
+              color: '#000000',
               margin: 0,
+              maxWidth: '90vw',
             }}
           >
-            <span style={{ display: 'block' }}>NANDAN</span>
-            <span style={{ display: 'block' }}>ACHAR</span>
-          </h1>
-        </motion.div>
+            Nandan Achar is <br /> Full Stack Developer
+          </motion.h1>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            duration: 1.5,
-            delay: 0.3,
-            ease: 'easeOut',
-          }}
-        >
-          <div
-            style={{
-              marginTop: '40px',
-              fontFamily: 'ui-monospace, SFMono-Regular, monospace',
-              fontSize: '10px',
-              textTransform: 'uppercase',
-              letterSpacing: '0.3em',
-              color: 'rgba(0,0,0,0.3)',
-              fontWeight: 300,
-              display: 'flex',
-              alignItems: 'center',
-              minHeight: '1.5em',
-            }}
-          >
-            <span>{typed}</span>
-            <motion.span
-              animate={{ opacity: [1, 0] }}
-              transition={{ duration: 0.7, repeat: Infinity }}
-              style={{
-                width: '1px',
-                height: '12px',
-                backgroundColor: 'rgba(0,0,0,0.4)',
-                marginLeft: '3px',
-              }}
-            />
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5, delay: 1.5, ease: [0.19, 1, 0.22, 1] }}
           style={{
-            position: 'absolute',
-            left: '20px',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '48px',
-            fontFamily: 'ui-monospace, monospace',
-            fontSize: '8px',
-            textTransform: 'uppercase',
-            letterSpacing: '0.4em',
-            color: 'rgba(0,0,0,0.12)',
-            fontWeight: 300,
+            fontFamily: 'ui-sans-serif, system-ui, sans-serif',
+            fontSize: '18px',
+            color: 'rgba(0,0,0,0.6)',
+            letterSpacing: '-0.01em',
+            fontWeight: 400,
+            textAlign: 'center',
+            marginBottom: '48px',
           }}
         >
-          {['Github', 'LinkedIn', 'Twitter'].map((s) => (
-            <a
-              key={s}
-              href="#"
-              style={{
-                writingMode: 'vertical-rl',
-                transform: 'rotate(180deg)',
-                textDecoration: 'none',
-                color: 'inherit',
-              }}
-            >
-              {s}
-            </a>
-          ))}
+          2026 Portfolio. AI & ML Enthusiast. Based in India.
+        </motion.p>
+
+        {/* Center Portrait Image */}
+        <motion.div
+          initial={{ opacity: 0, y: 60, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 2, delay: 1.8, ease: [0.19, 1, 0.22, 1] }}
+          style={{
+            width: '28vw',
+            minWidth: '320px',
+            aspectRatio: '3/4',
+            backgroundColor: '#E5E5E5',
+            borderRadius: '12px',
+            overflow: 'hidden',
+          }}
+        >
+          <img
+            src="/images/generated-hero.jpg"
+            alt="Nandan Achar"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              filter: 'grayscale(100%) contrast(110%) brightness(95%)',
+            }}
+          />
         </motion.div>
       </motion.div>
 
+      {/* Scroll Down Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.2 }}
-        transition={{ delay: 2.5, duration: 1.5 }}
+        transition={{ delay: 3.5, duration: 1 }}
         style={{
           position: 'fixed',
           bottom: '40px',
@@ -149,75 +118,15 @@ export default function Hero() {
           flexDirection: 'column',
           alignItems: 'center',
           zIndex: 10,
-          opacity: heroOpacity as unknown as number,
         }}
       >
-        <span
-          style={{
-            fontFamily: 'ui-monospace, monospace',
-            fontSize: '7px',
-            textTransform: 'uppercase',
-            letterSpacing: '0.5em',
-            color: '#000',
-            marginBottom: '16px',
-            fontWeight: 300,
-          }}
-        >
-          Scroll
-        </span>
-        <div
-          style={{
-            width: '1px',
-            height: '40px',
-            backgroundColor: '#E5E5E5',
-            position: 'relative',
-            overflow: 'hidden',
-          }}
-        >
-          <motion.div
+        <div style={{ width: '1px', height: '60px', background: 'rgba(0,0,0,0.1)', position: 'relative', overflow: 'hidden' }}>
+          <motion.div 
             animate={{ y: ['-100%', '200%'] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: 'linear' }}
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '50%',
-              backgroundColor: 'rgba(0,0,0,0.3)',
-            }}
+            transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '40%', background: '#000' }}
           />
         </div>
-      </motion.div>
-
-      <motion.div
-        style={{
-          position: 'fixed',
-          top: 0,
-          right: 0,
-          width: '55vw',
-          height: '100vh',
-          zIndex: 0,
-          pointerEvents: 'none',
-          overflow: 'hidden',
-          y: imageY,
-        }}
-      >
-        <motion.img
-          src="/images/generated-hero.jpg"
-          alt=""
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.25 }}
-          transition={{ duration: 3, ease: [0.25, 0.1, 0.25, 1], delay: 0.2 }}
-          style={{
-            width: '100%',
-            height: '130%',
-            objectFit: 'cover',
-            filter: 'grayscale(100%) contrast(120%) brightness(90%)',
-            mixBlendMode: 'multiply',
-            maskImage: 'linear-gradient(to right, transparent 0%, black 40%)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 40%)',
-          }}
-        />
       </motion.div>
     </section>
   );
