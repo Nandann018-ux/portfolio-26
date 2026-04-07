@@ -41,10 +41,14 @@ export default function Chronology() {
       {chronology.map((node, i) => (
         <motion.div
           key={i}
-          initial={{ opacity: 0, filter: 'blur(10px)' }}
-          whileInView={{ opacity: 1, filter: 'blur(0px)' }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 1.5 }}
+          initial={{ opacity: 0, y: 40, filter: 'blur(10px)' }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ 
+            duration: 1.5, 
+            ease: [0.19, 1, 0.22, 1],
+            delay: 0.1 
+          }}
           style={{
             display: 'flex',
             flexDirection: 'column',
