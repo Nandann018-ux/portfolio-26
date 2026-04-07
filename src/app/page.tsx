@@ -1,24 +1,34 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import BulbReveal from '@/components/BulbReveal';
+import { motion, AnimatePresence } from 'framer-motion';
+import LoadingScreen from '@/components/LoadingScreen';
+import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Chronology from '@/components/Chronology';
 
 export default function Home() {
   const [isRevealed, setIsRevealed] = useState(false);
 
-  if (!isRevealed) {
-    return <BulbReveal onComplete={() => setIsRevealed(true)} />;
-  }
-
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1.5, ease: 'easeOut' }}
-    >
+    <>
+      <AnimatePresence mode="wait">
+        {!isRevealed && (
+          <LoadingScreen key="loading" onComplete={() => setIsRevealed(true)} />
+        )}
+      </AnimatePresence>
+
+      <Navbar />
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.92, filter: 'blur(10px)' }}
+        animate={isRevealed ? { opacity: 1, scale: 1, filter: 'blur(0px)' } : {}}
+        transition={{ 
+          duration: 2, 
+          ease: [0.19, 1, 0.22, 1],
+          delay: 0.1
+        }}
+      >
       <div
         style={{
           position: 'fixed',
@@ -35,5 +45,6 @@ export default function Home() {
       <Hero />
       <Chronology />
     </motion.div>
+    </>
   );
 }
