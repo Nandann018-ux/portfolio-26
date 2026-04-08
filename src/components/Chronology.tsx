@@ -6,10 +6,11 @@ import { chronology } from '@/lib/data';
 export default function Chronology() {
   return (
     <section
+      id="chronology"
       style={{
         position: 'relative',
         width: '100%',
-        backgroundColor: '#F9F9F7',
+        backgroundColor: 'var(--bg-primary)',
         paddingTop: '10vh',
         paddingBottom: '20vh',
       }}
@@ -30,7 +31,8 @@ export default function Chronology() {
             fontSize: '10px',
             textTransform: 'uppercase',
             letterSpacing: '0.4em',
-            color: 'rgba(0,0,0,0.12)',
+            color: 'var(--text-secondary)',
+            opacity: 0.3,
             fontWeight: 300,
           }}
         >
@@ -63,7 +65,7 @@ export default function Chronology() {
               fontSize: '10px',
               textTransform: 'uppercase',
               letterSpacing: '0.3em',
-              color: 'rgba(0,0,0,0.2)',
+              color: 'var(--text-secondary)',
               fontWeight: 300,
               marginBottom: '20px',
             }}
@@ -78,7 +80,7 @@ export default function Chronology() {
               fontStyle: 'italic',
               letterSpacing: '-0.03em',
               lineHeight: 1,
-              color: '#000',
+              color: 'var(--text-primary)',
               margin: 0,
               marginBottom: '16px',
             }}
@@ -91,7 +93,7 @@ export default function Chronology() {
               fontFamily: 'ui-sans-serif, system-ui, sans-serif',
               fontSize: '14px',
               fontWeight: 300,
-              color: 'rgba(0,0,0,0.35)',
+              color: 'var(--text-secondary)',
               lineHeight: 1.7,
               maxWidth: '24rem',
               margin: 0,
