@@ -46,7 +46,6 @@ export default function ThemeToggle() {
         boxShadow: '0 4px 20px rgba(0,0,0,0.06)',
       }}
     >
-      {/* Sliding Indicator */}
       <motion.div
         layoutId="theme-bubble"
         style={{
@@ -56,7 +55,7 @@ export default function ThemeToggle() {
           backgroundColor: 'var(--text-primary)',
           borderRadius: '999px',
           zIndex: 0,
-          left: 4 + activeIndex * 34, // 4 padding + index * (32 width + 2 gap)
+          left: 4 + activeIndex * 34,
         }}
         transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
       />

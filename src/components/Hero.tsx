@@ -46,7 +46,6 @@ export default function Hero() {
           y: heroY,
         }}
       >
-        {/* Left Side: Photo */}
         <motion.div
           initial={{ opacity: 0, x: -60, scale: 0.9 }}
           animate={{ opacity: 1, x: 0, scale: 1 }}
@@ -85,7 +84,6 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Right Side: Content */}
         <div 
           style={{ 
             flex: 'none',
@@ -96,7 +94,6 @@ export default function Hero() {
             textAlign: isMobile ? 'center' : 'left',
           }}
         >
-          {/* Metadata / Secondary Details */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 0.5, y: 0 }}
@@ -113,7 +110,6 @@ export default function Hero() {
             /nʌndən/ · INDIA-IST · FULL-STACK
           </motion.div>
 
-          {/* Name Reveal */}
           <div style={{ overflow: 'hidden', marginBottom: '20px' }}>
             <motion.h1
               initial={{ y: '100%' }}
@@ -138,7 +134,6 @@ export default function Hero() {
             </motion.h1>
           </div>
 
-          {/* Role / Description */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -174,7 +169,6 @@ export default function Hero() {
 
       </motion.div>
 
-      {/* Scroll Down Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.3 }}

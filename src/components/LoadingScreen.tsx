@@ -25,7 +25,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
   const logsEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const duration = 2000; // 2 seconds
+    const duration = 2000;
     const interval = 20; 
     const totalTicks = duration / interval;
     const increment = 100 / totalTicks;
@@ -41,7 +41,6 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
       });
     }, interval);
 
-    // Logs timing
     STATUS_LOGS.forEach((log, index) => {
       setTimeout(() => {
         setActiveLogs(prev => [...prev, log]);
@@ -82,7 +81,6 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
         alignItems: 'center',
         gap: '40px',
       }}>
-        {/* Terminal Logs Container */}
         <div style={{ 
           height: '180px', 
           overflowY: 'hidden', 
@@ -115,7 +113,6 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
           </AnimatePresence>
         </div>
 
-        {/* Minimal Progress Bar */}
         <div style={{ 
           width: '180px', 
           height: '1px', 
@@ -148,7 +145,6 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
         </div>
       </div>
 
-      {/* Subtle Grain Texture to match premium feel */}
       <div
         style={{
           position: 'absolute',
