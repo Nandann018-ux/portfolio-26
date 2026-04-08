@@ -29,18 +29,7 @@ export default function Home() {
           delay: 0.1
         }}
       >
-      <div
-        style={{
-          position: 'fixed',
-          left: '50%',
-          top: 0,
-          bottom: 0,
-          width: '1px',
-          backgroundColor: '#E5E5E5',
-          zIndex: 50,
-          pointerEvents: 'none',
-        }}
-      />
+
 
       <Hero />
       <Chronology />

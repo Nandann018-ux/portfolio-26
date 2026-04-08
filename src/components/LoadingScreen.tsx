@@ -64,8 +64,8 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
         position: 'fixed',
         inset: 0,
         zIndex: 9999,
-        background: '#F9F9F7', // Matching portfolio cream/white
-        color: '#000000',
+        background: 'var(--bg-primary)',
+        color: 'var(--text-primary)',
         fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
         display: 'flex',
         flexDirection: 'column',
@@ -106,6 +106,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                   fontWeight: 400,
                   opacity: i === activeLogs.length - 1 ? 1 : 0.4,
                   transition: 'opacity 0.3s ease',
+                  color: 'var(--text-primary)',
                 }}
               >
                 {log}
@@ -118,7 +119,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
         <div style={{ 
           width: '180px', 
           height: '1px', 
-          background: 'rgba(0, 0, 0, 0.05)', 
+          background: 'var(--border-color)', 
           position: 'relative',
           overflow: 'hidden'
         }}>
@@ -128,7 +129,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
               left: 0,
               top: 0,
               bottom: 0,
-              background: '#000000',
+              background: 'var(--text-primary)',
               width: `${progress}%`,
             }}
           />
@@ -140,7 +141,8 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
           letterSpacing: '0.5em', 
           opacity: 0.3,
           fontWeight: 300,
-          marginTop: '8px'
+          marginTop: '8px',
+          color: 'var(--text-primary)',
         }}>
           NANDAN ACHAR // SYSTEM_V1
         </div>
