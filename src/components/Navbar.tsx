@@ -1,15 +1,17 @@
-'use client';
-
 import { motion } from 'framer-motion';
+import { Home, User, FolderCode, Mail, FileText } from 'lucide-react';
+import { useState } from 'react';
 
 const NAV_ITEMS = [
-  { label: 'Nandan Achar', href: '#' },
-  { label: 'Chronology', href: '#chronology' },
-  { label: 'LinkedIn', href: 'https://linkedin.com' },
-  { label: 'Contact', href: 'mailto:hello@nandan.dev' },
+  { label: 'Home', href: '#', icon: Home },
+  { label: 'About', href: '#chronology', icon: User },
+  { label: 'Projects', href: '#projects', icon: FolderCode },
+  { label: 'Contact', href: '#contact', icon: Mail },
 ];
 
 export default function Navbar() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
@@ -26,12 +28,12 @@ export default function Navbar() {
         backgroundColor: 'var(--nav-bg)',
         backdropFilter: 'blur(12px)',
         WebkitBackdropFilter: 'blur(12px)',
-        padding: '10px 28px',
+        padding: '8px 12px',
         borderRadius: '999px',
         boxShadow: '0 8px 32px rgba(0, 0, 0, 0.04)',
         display: 'flex',
         alignItems: 'center',
-        gap: '28px',
+        gap: '4px',
         border: '1px solid var(--border-color)',
       }}
     >
@@ -39,26 +41,48 @@ export default function Navbar() {
         <a
           key={item.label}
           href={item.href}
+          onMouseEnter={() => setHoveredIndex(index)}
+          onMouseLeave={() => setHoveredIndex(null)}
           style={{
+            position: 'relative',
             textDecoration: 'none',
             color: 'var(--text-primary)',
-            fontSize: '12px',
-            fontWeight: index === 0 ? 600 : 400,
-            opacity: index === 0 ? 1 : 0.5,
-            transition: 'opacity 0.3s ease, transform 0.3s ease',
-            whiteSpace: 'nowrap',
-            letterSpacing: '0.02em',
+            padding: '10px',
+            borderRadius: '999px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'background-color 0.3s ease',
+            backgroundColor: hoveredIndex === index ? 'var(--selection-bg)' : 'transparent',
           }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.opacity = '1';
-            e.currentTarget.style.transform = 'translateY(-1px)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.opacity = index === 0 ? '1' : '0.5';
-            e.currentTarget.style.transform = 'translateY(0)';
-          }}
+          title={item.label}
         >
-          {item.label}
+          <item.icon size={18} strokeWidth={2} style={{ opacity: hoveredIndex === index ? 1 : 0.6, transition: 'opacity 0.3s ease' }} />
+          
+          {hoveredIndex === index && (
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              style={{
+                position: 'absolute',
+                top: 'calc(100% + 12px)',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                backgroundColor: 'var(--text-primary)',
+                color: 'var(--bg-primary)',
+                padding: '4px 10px',
+                borderRadius: '6px',
+                fontSize: '10px',
+                fontWeight: 600,
+                letterSpacing: '0.05em',
+                textTransform: 'uppercase',
+                pointerEvents: 'none',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {item.label}
+            </motion.span>
+          )}
         </a>
       ))}
     </motion.nav>
