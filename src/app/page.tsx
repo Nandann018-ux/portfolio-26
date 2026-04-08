@@ -6,6 +6,8 @@ import LoadingScreen from '@/components/LoadingScreen';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Chronology from '@/components/Chronology';
+import Projects from '@/components/Projects';
+import Contact from '@/components/Contact';
 
 export default function Home() {
   const [isRevealed, setIsRevealed] = useState(false);
@@ -33,6 +35,8 @@ export default function Home() {
 
       <Hero />
       <Chronology />
+      <Projects />
+      <Contact />
     </motion.div>
     </>
   );

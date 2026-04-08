@@ -107,7 +107,7 @@ export default function Hero() {
               color: 'var(--text-primary)',
             }}
           >
-            /nʌndən/ · INDIA-IST · FULL-STACK
+            /nʌndən/ · INDIA-IST · BENGALURU
           </motion.div>
 
           <div style={{ overflow: 'hidden', marginBottom: '20px' }}>
@@ -152,7 +152,7 @@ export default function Hero() {
               fontWeight: 700,
               lineHeight: 1.2,
             }}>
-              Open Source Contributor & AI / ML Student
+              Full-Stack Developer | AI & ML Undergrad
             </span>
             <p style={{ 
               fontFamily: 'ui-sans-serif, system-ui, sans-serif',
@@ -162,7 +162,6 @@ export default function Hero() {
               lineHeight: 1.6,
               margin: 0,
             }}>
-              Bridging the gap between robust MERN architectures and local AI inference. Focused on building high-performance, offline-first applications.
             </p>
           </motion.div>
         </div>
