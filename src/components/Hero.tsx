@@ -21,12 +21,12 @@ export default function Hero() {
     offset: ['start start', 'end start'],
   });
 
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
-  const heroScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
-  const heroY = useTransform(scrollYProgress, [0, 0.5], [0, -40]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const heroScale = useTransform(scrollYProgress, [0, 0.8], [1, 0.95]);
+  const heroY = useTransform(scrollYProgress, [0, 0.8], [0, -20]);
 
   return (
-    <section ref={ref} style={{ position: 'relative', width: '100%', minHeight: '180vh', backgroundColor: 'var(--bg-primary)' }}>
+    <section ref={ref} style={{ position: 'relative', width: '100%', minHeight: '130vh', backgroundColor: 'var(--bg-primary)' }}>
       <motion.div
         style={{
           position: 'fixed',
