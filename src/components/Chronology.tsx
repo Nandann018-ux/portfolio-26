@@ -16,10 +16,6 @@ export default function Chronology() {
       }}
     >
       <motion.div
-        initial={{ opacity: 0, filter: 'blur(6px)' }}
-        whileInView={{ opacity: 1, filter: 'blur(0px)' }}
-        viewport={{ once: true, amount: 0.8 }}
-        transition={{ duration: 1.5 }}
         style={{
           textAlign: 'center',
           marginBottom: '30vh',
