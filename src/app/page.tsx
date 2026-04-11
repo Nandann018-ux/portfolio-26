@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import LoadingScreen from '@/components/LoadingScreen';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
+import SectionReveal from '@/components/SectionReveal';
+import About from '@/components/About';
 import Chronology from '@/components/Chronology';
 import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
@@ -34,9 +36,22 @@ export default function Home() {
 
 
       <Hero />
-      <Chronology />
-      <Projects />
-      <Contact />
+      
+      <SectionReveal>
+        <About />
+      </SectionReveal>
+      
+      <SectionReveal>
+        <Chronology />
+      </SectionReveal>
+      
+      <SectionReveal>
+        <Projects />
+      </SectionReveal>
+      
+      <SectionReveal>
+        <Contact />
+      </SectionReveal>
     </motion.div>
     </>
   );
