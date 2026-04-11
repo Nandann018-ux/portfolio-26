@@ -16,10 +16,6 @@ export default function Projects() {
       }}
     >
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 0.3 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.5 }}
         style={{
           textAlign: 'center',
           marginBottom: '20vh',
