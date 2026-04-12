@@ -17,7 +17,7 @@ export default function About() {
         position: 'relative',
         width: '100%',
         backgroundColor: 'var(--bg-primary)',
-        padding: '15vh 10vw',
+        padding: '10vh 10vw',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

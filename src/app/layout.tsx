@@ -4,6 +4,7 @@ import "../styles/globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import ThemeToggle from "@/components/ThemeToggle";
+import CustomCursor from "@/components/CustomCursor";
 
 export const metadata: Metadata = {
   title: "Nandan Acharya — Portfolio V1",
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full font-sans">
+        <div className="noise-overlay" />
         <ThemeProvider>
+          <CustomCursor />
           <ThemeToggle />
           <SmoothScroll>
             {children}
